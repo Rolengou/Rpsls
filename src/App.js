@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import {HashRouter, Route, Switch} from "react-router-dom";
+import {WaitingScreen} from "./waitingScreen";
+import { io } from "socket.io-client"
+import {Game} from "./game";
+import {useState} from "react";
+import {Redirect} from "react-router-dom";
+
+export const socket = io('http://localhost:5000')
 
 function App() {
+    const [socketId, setSocketId] = useState()
+    socket.on('player-connected', () => {
+        setSocketId(socket.id)
+    })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <HashRouter>
+          <Switch>
+            <Route exact path='/' component={() => <WaitingScreen socketId={socketId} />}/>
+            <Route exact path={`/game/${socketId}`} component={Game} />
+              {/*<Redirect to={`/game/${socketId}`} />*/}
+          </Switch>
+        </HashRouter>
+      </div>
   );
 }
 
