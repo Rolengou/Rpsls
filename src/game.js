@@ -18,6 +18,12 @@ export const Game = () => {
         setText(text)
     })
 
+    let id = window.location.pathname.substr(3,9);
+    let isAlreadyConnected = window.location.search.substr(1,5);
+    if(!isAlreadyConnected){
+        socket.emit('player2-connected', id);
+    }
+
     return (
         <Container className={styles.container} maxWidth="sm">
             <div className={styles.titleBlock}>

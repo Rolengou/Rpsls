@@ -3,7 +3,7 @@ import Billy from './image/pngegg.png'
 import Pentagon from './image/bg-pentagon.svg'
 import {socket} from './App'
 import {useState, useEffect} from "react"
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 
 export const useStyles = makeStyles((theme) => ({
@@ -112,29 +112,28 @@ export const useStyles = makeStyles((theme) => ({
 
 export const WaitingScreen = (props) => {
     const styles= useStyles()
-    const [redirect, setRedirect] = useState()
-    const history = useHistory()
+    const [redirect, setRedirect] = useState(false)
+    // const history = useHistory()
 
-    useEffect(() => {
-        if (redirect) {
-            history.push(`/game/${props.socketId}`)
-        }
-    }, [redirect])
+    // useEffect(() => {
+    //     if (redirect) {
+    //         history.push(`/game/${props.socketId}`)
+    //     }
+    // }, [redirect])
 
     socket.on('redirect', () => {
         setRedirect(true)
+        console.log(redirect)
     })
 
 
 
-    console.log(redirect)
-
-
     return (
+
         <Container className={styles.container} maxWidth="sm">
-            {/*{ redirect && <Redirect to='/game' /> }*/}
+            {redirect && <Redirect to={`/id/${props.socketId}`} />}
             <div>
-                <p className={styles.copyText}>{"localhost:3000/#/game/" + props.socketId}</p>
+                <p className={styles.copyText}>{"localhost:3000/id" + props.socketId}</p>
                 <button>Bla</button>
             </div>
             <img src={Billy} />
