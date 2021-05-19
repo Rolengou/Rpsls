@@ -60,7 +60,7 @@ const RpslsLogic = (p1, p2) => {
     }
 
     let sendWinMessage = (winner, loser) => {
-            winner.emit('message', 'You won!')
+            winner.emit('message', ['You won!', '+1'])
             loser.emit('message', 'You lost.')
         }
 
