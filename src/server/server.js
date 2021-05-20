@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 const express = require("express");
 const http = require("http");
 const path = require("path");
@@ -9,13 +9,13 @@ const index = path.join(__dirname, 'src')
 
 const server = express()
     .use((req, res) => {res.sendFile(index)})
-    .listen(PORT, () => console.log("listening on port 5000"))
+    .listen(PORT, () => console.log("listening on port 8000"))
 
 const io = useSocket(server)
 
 let waitingPlayer = null
 
-io.on('connection', socket => {
+io.on('connection', socket => {git
     socket.emit('connection')
 
     if (waitingPlayer) {
