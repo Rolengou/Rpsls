@@ -51,7 +51,7 @@ export const WaitingScreen = (props) => {
             <img className={styles.billySay} src={BloodyPhrase}/>
             <p className={styles.request}>Скопируйте ссылку и перешлите её второму игроку</p>
             <div className={styles.linkBlock}>
-                <p id="copyText" className={styles.copyText}>{"localhost:3000/id" + props.socketId}</p>
+                <p id="copyText" className={styles.copyText}>{"https://rpsls-on-react-and-socket-io.herokuapp.com/id" + props.socketId}</p>
                 <Button onClick={copyLink} variant="contained" color="secondary" className={styles.button}>Скопировать ссылку</Button>
                 <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success">
