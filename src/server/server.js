@@ -1,13 +1,13 @@
 
 
 const express = require("express");
-const https = require("https");
+const http = require("http");
 const path = require("path");
 const useSocket = require("socket.io");
 const RpslsLogic = require('../GameLogic/rspls.js')
 
 const app = express();
-const server = https.createServer(app)
+const server = http.createServer(app)
 
 app.use(express.static(path.join(__dirname, "src")))
 
