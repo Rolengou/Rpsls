@@ -9,14 +9,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "src")))
 
-const io = useSocket(app, {
-    cors: {
-        origin: '*',
-        methods: ["GET", "POST"],
-        credentials: true,
-        transports: ['websocket']
-    }
-})
+const io = useSocket(app)
 
 let waitingPlayer = null
 
