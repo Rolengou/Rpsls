@@ -5,11 +5,18 @@ const useSocket = require("socket.io");
 const RpslsLogic = require('../GameLogic/rspls.js')
 
 const app = express();
-// const server = http.createServer(app)
+const server = http.createServer(app)
 
 app.use(express.static(path.join(__dirname, "src")))
 
-const io = useSocket(app)
+const io = useSocket(server, {
+    cors: {
+        origin: '*',
+        methods: ["GET", "POST"],
+        credentials: true,
+        transports: ['websocket']
+    }
+})
 
 let waitingPlayer = null
 
@@ -31,7 +38,5 @@ io.on('connection', socket => {
     })
     })
 
-const port = process.env.PORT || 80
-
-app.listen(port, () => console.log("Server started on port 5000..."));
+server.listen(process.env.PORT || 5000, () => console.log("Server started on port 5000..."));
 

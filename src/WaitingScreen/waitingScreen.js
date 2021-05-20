@@ -13,8 +13,7 @@ import useSound from "use-sound"
 export const WaitingScreen = (props) => {
     const [redirect, setRedirect] = useState(false)
     const [open, setOpen] = useState(false)
-
-        const [play, { stop }] = useSound(BillySound)
+    const [play, { stop }] = useSound(BillySound)
 
     socket.on('redirect', () => {
         setRedirect(true)
