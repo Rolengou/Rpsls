@@ -8,9 +8,7 @@ import BloodyPhrase from '../image/bloodyPhrase.png'
 import Snackbar from '@material-ui/core/Snackbar'
 import MuiAlert from '@material-ui/lab/Alert'
 import BillySound from '../sound/I  Want to play a game.mp3'
-import useSound from "use-sound";
-
-
+import useSound from "use-sound"
 
 export const WaitingScreen = (props) => {
     const [redirect, setRedirect] = useState(false)
@@ -51,7 +49,7 @@ export const WaitingScreen = (props) => {
             <img className={styles.billySay} src={BloodyPhrase}/>
             <p className={styles.request}>Скопируйте ссылку и перешлите её второму игроку</p>
             <div className={styles.linkBlock}>
-                <p id="copyText" className={styles.copyText}>{"http://rpsls-on-react-and-socket-io.herokuapp.com/id" + props.socketId}</p>
+                <p id="copyText" className={styles.copyText}>{"https://rpsls-on-react-and-socket-io.herokuapp.com/id" + props.socketId}</p>
                 <Button onClick={copyLink} variant="contained" color="secondary" className={styles.button}>Скопировать ссылку</Button>
                 <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success">
