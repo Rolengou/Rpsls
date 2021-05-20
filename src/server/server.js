@@ -1,15 +1,14 @@
-const PORT = process.env.PORT || 5000;
-
+const PORT = process.env.PORT || 3000;
 const express = require("express");
 const http = require("http");
 const path = require("path");
 const useSocket = require("socket.io");
 const RpslsLogic = require('../GameLogic/rspls.js')
 
-const app = express();
-const server = http.createServer(app)
+const server = express();
 
-app.use(express.static(path.join(__dirname, "src")))
+
+server.use(express.static(path.join(__dirname, "src")))
 
 const io = useSocket(server, {
     cors: {
@@ -40,7 +39,5 @@ io.on('connection', socket => {
     })
     })
 
-
-
-server.listen(PORT,() => console.log("Server started on port 5000..."));
+server.listen(PORT,() => console.log("Server started on port 3000..."));
 
