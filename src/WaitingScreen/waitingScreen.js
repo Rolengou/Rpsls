@@ -1,6 +1,6 @@
 import {Button, Container} from '@material-ui/core'
 import Billy from '../image/pngegg.png'
-import { socket } from '../App'
+import { socket } from '../App.js'
 import { useState } from "react"
 import { Redirect } from 'react-router-dom'
 import styles from './waitingScreen.module.css'

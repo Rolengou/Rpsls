@@ -116,7 +116,6 @@ export const Game = () => {
                     </form>
                 </div>
             </div>
-            {/*<img src={Rules}/>*/}
             <Dialog
                 open={open}
                 onClose={handleClose}
