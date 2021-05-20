@@ -6,7 +6,7 @@ import {useState} from "react";
 import {Redirect} from "react-router-dom";
 
 
-export const socket = io.connect()
+export const socket = io('https://rpsls-on-react-and-socket-io.herokuapp.com:5000')
 
 function App() {
     const [socketId, setSocketId] = useState('')
