@@ -32,7 +32,7 @@ io.on('connection', socket => {
         waitingPlayer.emit('message', 'Waiting for an opponent')
     }
 
-    //socket.emit('message', ['hi, pidr'])
+    ///socket.emit('message', ['hi, pidr'])
     socket.on('message', messageText => {
         io.emit('message', messageText)
     })

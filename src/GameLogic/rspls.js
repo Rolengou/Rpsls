@@ -13,7 +13,7 @@ const RpslsLogic = (p1, p2) => {
     let sendToPlayers = (msg) => {
         players.forEach(player => player.emit('message', msg))
     }
-    sendToPlayers('Rock Paper Scissor Lizard Spock Starts!')
+    sendToPlayers('Игра Камень, Ножницы, Бумага, Ящерица, Спок начинается!')
 
     let sendToPlayer = (playerIndex, msg) => {
         players[playerIndex].emit('message', msg)
@@ -21,16 +21,16 @@ const RpslsLogic = (p1, p2) => {
 
     let onTurn = (playerIndex, turn) => {
         turns[playerIndex] = turn
-        sendToPlayer(playerIndex, `You selected ${turn}`)
+        sendToPlayer(playerIndex, `Ваш выбор: ${turn}`)
         checkGameOver()
     }
 
     let checkGameOver = () => {
         if (turns[0] && turns[1]) {
-            sendToPlayers('Game over ' + turns.join(' : '))
+            sendToPlayers('Игра окончена: ' + turns.join(' vs. '))
             getGameResult()
             turns = [null, null]
-            setTimeout(() => {sendToPlayers('Next round!!! Выбери знак!')}, 2000)
+            setTimeout(() => {sendToPlayers('Новый раунд! Выбери знак!')}, 2000)
         }
     }
 
@@ -42,7 +42,7 @@ const RpslsLogic = (p1, p2) => {
 
         switch (distance) {
             case 0:
-                sendToPlayers('Draw!')
+                sendToPlayers('Ничья!')
                 break
             case 1:
                 sendWinMessage(players[0], players[1])
@@ -60,25 +60,24 @@ const RpslsLogic = (p1, p2) => {
     }
 
     let sendWinMessage = (winner, loser) => {
-            winner.emit('message', ['You won!', '+1'])
-            loser.emit('message', 'You lost.')
+            winner.emit('message', ['Вы выиграли!', '+1'])
+            loser.emit('message', 'Вы проиграли =(')
         }
 
     let decodeTurn = (turn) => {
         switch (turn) {
-            case 'rock':
+            case 'камень':
                 return 0
-            case 'paper':
+            case 'бумага':
                 return 1
-            case 'scissor':
+            case 'ножницы':
                 return 2
-            case 'spock':
+            case 'спок':
                 return 3
-            case 'lizard':
+            case 'ящерица':
                 return 4
         }
     }
-
 }
 
 module.exports = RpslsLogic

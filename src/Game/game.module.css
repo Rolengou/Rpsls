@@ -118,7 +118,7 @@ input {
   padding: 0;
   border-bottom: 1px solid grey;
   background-color: white;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .events li {

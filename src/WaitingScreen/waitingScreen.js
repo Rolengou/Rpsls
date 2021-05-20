@@ -5,14 +5,19 @@ import { useState } from "react"
 import { Redirect } from 'react-router-dom'
 import styles from './waitingScreen.module.css'
 import BloodyPhrase from '../image/bloodyPhrase.png'
-import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar'
+import MuiAlert from '@material-ui/lab/Alert'
+import BillySound from '../sound/I  Want to play a game.mp3'
+import useSound from "use-sound";
 
 
 
 export const WaitingScreen = (props) => {
     const [redirect, setRedirect] = useState(false)
     const [open, setOpen] = useState(false)
+
+        const [play, { stop }] = useSound(BillySound)
+
     socket.on('redirect', () => {
         setRedirect(true)
         console.log(redirect)
@@ -54,7 +59,7 @@ export const WaitingScreen = (props) => {
                     </Alert>
                 </Snackbar>
             </div>
-            <img className={styles.image} src={Billy} />
+            <img onMouseEnter={play} onMouseLeave={stop} className={styles.image} src={Billy} />
         </Container>
     )
 }
