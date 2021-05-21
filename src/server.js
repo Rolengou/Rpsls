@@ -7,7 +7,7 @@ const RpslsLogic = require('./GameLogic/rspls.js')
 const server = express();
 // const server = http.createServer(app)
 
-server.use(express.static(path.join(__dirname, "src")))
+server.use(express.static(path.join(__dirname, "src/App.js")))
 
 const io = useSocket(server)
     // {
