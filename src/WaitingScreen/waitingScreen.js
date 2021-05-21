@@ -51,7 +51,7 @@ export const WaitingScreen = (props) => {
             <img className={styles.billySay} src={BloodyPhrase}/>
             <p className={styles.request}>Скопируйте ссылку и перешлите её второму игроку</p>
             <div className={styles.linkBlock}>
-                <p id="copyText" className={styles.copyText}>{"localhost:3000/id" + props.socketId}</p>
+                <p id="copyText" className={styles.copyText}>{"https://hopeful-sammet-43b8f7.netlify.app/id" + props.socketId}</p>
                 <Button onClick={copyLink} variant="contained" color="secondary" className={styles.button}>Скопировать ссылку</Button>
                 <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success">
