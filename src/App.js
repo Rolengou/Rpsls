@@ -6,7 +6,7 @@ import {useState} from "react";
 import {Redirect} from "react-router-dom";
 
 
-export const socket = io()
+export let socket = io()
 
 function App() {
     const [socketId, setSocketId] = useState('')

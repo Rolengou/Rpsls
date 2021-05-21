@@ -1,22 +1,23 @@
 const express = require("express");
-const http = require("http");
+// const http = require("http");
 const path = require("path");
 const useSocket = require("socket.io");
 const RpslsLogic = require('./GameLogic/rspls.js')
 
-const app = express();
-const server = http.createServer(app)
+const server = express();
+// const server = http.createServer(app)
 
-app.use(express.static(path.join(__dirname, "src")))
+server.use(express.static(path.join(__dirname, "src")))
 
-const io = useSocket(server, {
-    cors: {
-        origin: '*',
-        methods: ["GET", "POST"],
-        credentials: true,
-        transports: ['websocket']
-    }
-})
+const io = useSocket(server)
+    // {
+    // cors: {
+    //     origin: '*',
+    //     methods: ["GET", "POST"],
+    //     credentials: true,
+    //     transports: ['websocket']
+    // }
+// })
 
 let waitingPlayer = null
 
