@@ -12,6 +12,9 @@ app.use(express.static(path.join(__dirname, "src")))
 const io = useSocket(server, {
     cors: {
         origin: '*',
+        methods: ["GET", "POST"],
+        credentials: true,
+        transports: ['websocket']
     }
 })
 
