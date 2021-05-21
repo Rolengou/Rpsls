@@ -2,7 +2,7 @@ const express = require("express");
 const http = require("http");
 const path = require("path");
 const useSocket = require("socket.io");
-const RpslsLogic = require('./src/GameLogic/rspls.js')
+const RpslsLogic = require('./GameLogic/rspls.js')
 
 const app = express();
 const server = http.createServer(app)

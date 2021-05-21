@@ -7,7 +7,7 @@ import SpockIcon from "../image/icon-spock.svg";
 import {Button, Container, Dialog, DialogActions} from "@material-ui/core";
 import Rules from "../image/image-rules-bonus.svg";
 import clsx from 'clsx'
-import {socket} from '../../App'
+import {socket} from '../App'
 import {useEffect, useRef, useState} from "react";
 import styles from './game.module.css'
 import SendIcon from '@material-ui/icons/Send';
