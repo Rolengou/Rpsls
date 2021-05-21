@@ -2,12 +2,12 @@ const express = require("express");
 const http = require("http");
 const path = require("path");
 const useSocket = require("socket.io");
-const RpslsLogic = require('./GameLogic/rspls.js')
+const RpslsLogic = require('./src/GameLogic/rspls.js')
 
 const app = express();
 const server = http.createServer(app)
 
-app.use(express.static(path.join(__dirname, "src")))
+app.use(express.static(path.join(__dirname)))
 
 const io = useSocket(server, {
     cors: {
