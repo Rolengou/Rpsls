@@ -12,7 +12,9 @@ function App() {
     const [socketId, setSocketId] = useState('')
     socket.on('connection', () => {
         setSocketId(socket.id)
+
     })
+    console.log(socketId)
 
   return (
       <div>

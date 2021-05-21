@@ -17,7 +17,6 @@ export const WaitingScreen = (props) => {
 
     socket.on('redirect', () => {
         setRedirect(true)
-        console.log(redirect)
     })
 
     //всплывающее окно подтверждения
