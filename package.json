@@ -21,11 +21,11 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "poststart": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start": "node src/server.js"
+    "server": "node server.js"
   },
   "eslintConfig": {
     "extends": [
