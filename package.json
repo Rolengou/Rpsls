@@ -25,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prestart": "node server.js"
+    "poststart": "node server.js"
   },
   "eslintConfig": {
     "extends": [
