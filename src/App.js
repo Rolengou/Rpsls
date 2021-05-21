@@ -1,5 +1,5 @@
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import {WaitingScreen} from "./WaitingScreen/waitingScreen";
+import {WaitingScreen} from "./waitingScreen";
 import { io } from "socket.io-client"
 import {Game} from "./Game/game";
 import {useState} from "react";

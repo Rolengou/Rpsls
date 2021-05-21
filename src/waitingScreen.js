@@ -1,13 +1,13 @@
 import {Button, Container} from '@material-ui/core'
-import Billy from '../image/pngegg.png'
-import { socket } from '../App.js'
+import Billy from './image/pngegg.png'
+import { socket } from './App.js'
 import { useState } from "react"
 import { Redirect } from 'react-router-dom'
-import styles from './waitingScreen.module.css'
-import BloodyPhrase from '../image/bloodyPhrase.png'
+import styles from './WaitingScreen/waitingScreen.module.css'
+import BloodyPhrase from './image/bloodyPhrase.png'
 import Snackbar from '@material-ui/core/Snackbar'
 import MuiAlert from '@material-ui/lab/Alert'
-import BillySound from '../sound/I  Want to play a game.mp3'
+import BillySound from './sound/I  Want to play a game.mp3'
 import useSound from "use-sound"
 
 export const WaitingScreen = (props) => {
