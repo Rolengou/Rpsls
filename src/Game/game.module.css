@@ -122,9 +122,15 @@ input {
 }
 
 .events li {
-  padding: 10px 10px 5px;
+  max-width: 200px;
+  padding: 10px 10px 10px;
+  margin: 10px 4px 10px 5px;
   color: black;
   text-align: start;
+  border: #ccc;
+  border-radius: 5px;
+  background-color: #ddd;
+  overflow-wrap: normal;
 }
 
 .chatWrapper {
@@ -159,6 +165,7 @@ input {
 .chatWrapper form button {
   border-radius: 0%;
 }
+
 
 .inputWrap {
   display: flex;
