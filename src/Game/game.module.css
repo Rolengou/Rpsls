@@ -124,7 +124,7 @@ input {
 .events li {
   max-width: 200px;
   padding: 10px 10px 10px;
-  margin: 10px 4px 10px 5px;
+  margin: 15px 4px 10px 15px;
   color: black;
   text-align: start;
   border: #ccc;
