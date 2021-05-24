@@ -1,17 +1,17 @@
-import LogoBonus from "../image/logo-bonus.svg";
-import LizardIcon from "../image/icon-lizard.svg";
-import PaperIcon from "../image/icon-paper.svg";
-import RockIcon from "../image/icon-rock.svg";
-import ScissorsIcon from "../image/icon-scissors.svg";
-import SpockIcon from "../image/icon-spock.svg";
+import LogoBonus from "../image/logo-bonus.svg"
+import LizardIcon from "../image/icon-lizard.svg"
+import PaperIcon from "../image/icon-paper.svg"
+import RockIcon from "../image/icon-rock.svg"
+import ScissorsIcon from "../image/icon-scissors.svg"
+import SpockIcon from "../image/icon-spock.svg"
 import {Button, Container, Dialog, DialogActions} from "@material-ui/core";
-import Rules from "../image/image-rules-bonus.svg";
+import Rules from "../image/image-rules-bonus.svg"
 import clsx from 'clsx'
 import {socket} from '../App'
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react"
 import styles from './game.module.css'
-import SendIcon from '@material-ui/icons/Send';
-import useSound from "use-sound";
+import SendIcon from '@material-ui/icons/Send'
+import useSound from "use-sound"
 import WinSound from "../sound/You Win.mp3"
 import LoseSound from "../sound/youre-a-loser.mp3"
 
@@ -27,8 +27,8 @@ export const Game = () => {
     const messagesEndRef = useRef(null);
     const scrollToBottom = () => {
         messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-    };
-    useEffect(scrollToBottom, [text]);
+    }
+    useEffect(scrollToBottom, [text])
 
     useEffect(() => {
         socket.on('message', (messageText) => {
@@ -46,7 +46,7 @@ export const Game = () => {
             }
         })
         return () => {
-           socket.off('message');
+           socket.off('message')
         };
     }, [text]);
 
@@ -87,21 +87,36 @@ export const Game = () => {
             <div className={styles.gameBlock}>
                 <div className={styles.userChoice}>
                     <div className={styles.firstBlock}>
-                        <img onClick={() => {socket.emit('turn', 'камень')}} className={ clsx(styles.rockCard, styles.gameCard) } src={RockIcon} alt='rock'/>
+                        <img
+                            onClick={() => {socket.emit('turn', 'камень')}}
+                            className={ clsx(styles.rockCard, styles.gameCard) }
+                            src={RockIcon} alt='rock'/>
                     </div>
                     <div className={styles.secondBlock}>
-                        <img onClick={() => {socket.emit('turn', 'спок')}} className={ clsx(styles.spockCard, styles.gameCard) } src={SpockIcon} alt='spock'/>
-                        <img onClick={() => {socket.emit('turn', 'ножницы')}} className={ clsx(styles.scissorCard, styles.gameCard) } src={ScissorsIcon} alt='scissor'/>
+                        <img
+                            onClick={() => {socket.emit('turn', 'спок')}}
+                            className={ clsx(styles.spockCard, styles.gameCard) }
+                            src={SpockIcon} alt='spock'/>
+                        <img
+                            onClick={() => {socket.emit('turn', 'ножницы')}}
+                            className={ clsx(styles.scissorCard, styles.gameCard) }
+                            src={ScissorsIcon} alt='scissor'/>
                     </div>
                     <div className={styles.thirdBlock}>
-                        <img onClick={() => {socket.emit('turn', 'ящерица')}} className={ clsx(styles.lizardCard, styles.gameCard) } src={LizardIcon} alt='lizard'/>
-                        <img onClick={() => {socket.emit('turn', 'бумага')}} className={ clsx(styles.paperCard, styles.gameCard) } src={PaperIcon} alt='paper'/>
+                        <img
+                            onClick={() => {socket.emit('turn', 'ящерица')}}
+                            className={ clsx(styles.lizardCard, styles.gameCard) }
+                            src={LizardIcon} alt='lizard'/>
+                        <img
+                            onClick={() => {socket.emit('turn', 'бумага')}}
+                            className={ clsx(styles.paperCard, styles.gameCard) }
+                            src={PaperIcon} alt='paper'/>
                     </div>
                 </div>
                 <div className={styles.chatWrapper}>
                     <form id="myForm"  onSubmit={onSubmit} >
                         <ul  className={styles.events}>
-                            <li>Hi!</li>
+                            <li className={styles.messageCloud}>Hi!</li>
                             {text.map((t) => {
                                return <li>{t}</li>
                             })}
@@ -110,9 +125,22 @@ export const Game = () => {
 
                         <div className={styles.inputWrap}>
                             <input value={inputU} onChange={onChange} />
-                            <Button type="submit" form="myForm" variant="contained" color="primary" ><SendIcon /></Button>
+                            <Button
+                                type="submit"
+                                form="myForm"
+                                variant="contained"
+                                color="primary" >
+                                <SendIcon />
+                            </Button>
                         </div>
-                        <Button onClick={handleClickOpen} fullWidth="true" className={styles.rules} variant="contained" color="primary" > Rules</Button>
+                        <Button
+                            onClick={handleClickOpen}
+                            fullWidth="true"
+                            className={styles.rules}
+                            variant="contained"
+                            color="primary" >
+                                Rules
+                        </Button>
                     </form>
                 </div>
             </div>

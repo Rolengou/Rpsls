@@ -30,7 +30,7 @@ const RpslsLogic = (p1, p2) => {
             sendToPlayers('Игра окончена: ' + turns.join(' vs. '))
             getGameResult()
             turns = [null, null]
-            setTimeout(() => {sendToPlayers('Новый раунд! Выбери знак!')}, 2000)
+            setTimeout(() => {sendToPlayers('Новый раунд! Выбери знак!')}, 1500)
         }
     }
 

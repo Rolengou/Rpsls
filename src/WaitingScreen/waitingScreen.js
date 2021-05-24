@@ -46,20 +46,35 @@ export const WaitingScreen = (props) => {
     }
 
     return (
+
         <Container maxWidth="sm" className={styles.container} >
             {redirect && <Redirect to={`/id/${props.socketId}`} />}
             <img className={styles.billySay} src={BloodyPhrase}/>
-            <p className={styles.request}>Скопируйте ссылку и перешлите её второму игроку</p>
+            <p className={styles.request}>
+                Скопируйте ссылку и перешлите её второму игроку
+            </p>
             <div className={styles.linkBlock}>
-                <p id="copyText" className={styles.copyText}>{"https://rpsls-on-react-and-socket-io.netlify.app/id/" + props.socketId}</p>
-                <Button onClick={copyLink} variant="contained" color="secondary" className={styles.button}>Скопировать ссылку</Button>
-                <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+                <p id="copyText" className={styles.copyText}>
+                    {"https://rpsls-on-react-and-socket-io.netlify.app/id/" + props.socketId}
+                </p>
+                <Button onClick={copyLink}
+                        variant="contained"
+                        color="secondary"
+                        className={styles.button}>Скопировать ссылку
+                </Button>
+                <Snackbar open={open}
+                          autoHideDuration={1000}
+                          onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success">
                         Ссылка скопирована
                     </Alert>
                 </Snackbar>
             </div>
-            <img onMouseEnter={play} onMouseLeave={stop} className={styles.image} src={Billy} />
+            <img onMouseEnter={play}
+                 onMouseLeave={stop}
+                 className={styles.image}
+                 src={Billy} />
         </Container>
+
     )
 }
